@@ -8,6 +8,7 @@ import {HttpClientModule}from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavigationComponent } from './navigation/navigation.component';
+import { EditarProductoComponent } from './componentes/editar-producto/editar-producto.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     AppComponent,
     CrearProductoComponent,
     ListarProductoComponent,
-    NavigationComponent
+    NavigationComponent,
+    EditarProductoComponent
   ],
   imports: [
     BrowserModule,

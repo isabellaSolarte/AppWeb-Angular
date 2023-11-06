@@ -1,1 +1,58 @@
-<p>listar-producto works!</p>
+<div class="wrapper">
+    <div class="cabecera">
+        <img src="assets/Logo econoMart.png" alt="Icono" class="icono-izquierda">
+        <button (click)= "irCrearProducto()" class="btn btn-custom boton-derecha">Crear <i class="fas fa-plus"></i></button>
+    </div>
+
+    <div class="container py-4">
+        
+            <div class="table-responsive ">
+                <table class="table table-striped rounded">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Fecha de creación</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td>
+                                <div class="button-container">
+                                  <button (click)="irEditar()" class="btn btn-editar"  title="Editar">
+                                    <i class="fas fa-pencil-alt"></i>
+                                  </button>
+                              
+                                  <button  class="btn btn-eliminar"  title="Eliminar" style="margin-left: 5px;">
+                                    <i class="fas fa-trash-alt"></i>
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          </ng-container>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+    <div id="footer" class="footer-con-imagen">
+        <div class="imagen-con-textoF">
+        <div class="texto-con-lineaF">
+            <div class="linea-verticalF">
+            <span>
+                © 2023 Econo Mart, Inc.
+            </span>
+            </div>
+            <span>Terms Privacy Security</span>
+        </div>
+        </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+  
