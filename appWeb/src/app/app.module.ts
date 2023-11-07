@@ -11,6 +11,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { EditarProductoComponent } from './componentes/editar-producto/editar-producto.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { EditarProductoComponent } from './componentes/editar-producto/editar-pr
     ListarProductoComponent,
     NavigationComponent,
     EditarProductoComponent
+
   ],
   imports: [
     BrowserModule,
