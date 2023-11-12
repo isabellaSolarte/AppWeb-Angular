@@ -18,12 +18,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <ng-container>
+                        <ng-container *ngFor="let producto of productos; let i = index">
                             <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td>{{producto._idproducto}}</td>
+                              <td>{{producto._nombreproducto}}</td>
+                              <td>{{producto._precio}}</td>
+                              <td>{{producto._fechafabricacion}}</td>
                               <td>
                                 <div class="button-container">
                                   <button (click)="irEditar()" class="btn btn-editar"  title="Editar">

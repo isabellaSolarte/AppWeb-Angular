@@ -8,6 +8,6 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent {
   constructor(private router:Router){
-      this.router.navigate(['listarProducto']);
+      this.router.navigate(['login']);
   }
 }
