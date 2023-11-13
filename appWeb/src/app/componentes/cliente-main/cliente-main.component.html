@@ -1,0 +1,45 @@
+  <div class="wrapper">
+    <div class="cabecera">
+        <img src="assets/Logo econoMart.png" alt="Icono" class="icono-izquierda">
+        <button  class="btn btn-custom boton-derecha">Crear lista <i class="fas fa-plus"></i></button>
+    </div>
+
+    <div class="container py-4">
+        <div class="card">
+            <!-- Cuarto superior con imagen -->
+            <img [src]="obtenerRutaImagenAleatoria()" class="card-img-top" alt="Imagen">
+          
+            <!-- Resto de la card con fondo gris -->
+            <div class="card-body bg-light">
+              <!-- Título y descripción -->
+              <h5 class="card-title">Título de la Card</h5>
+              <p class="card-text">Descripción de la Card.</p>
+          
+              <!-- Botones de eliminar y agregar -->
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-danger btn-sm">
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+                <button type="button" class="btn btn-success btn-sm">
+                  <i class="bi bi-plus"></i> Agregar
+                </button>
+              </div>
+            </div>
+          </div>
+            
+    </div>
+    <div id="footer" class="footer-con-imagen">
+        <div class="imagen-con-textoF">
+        <div class="texto-con-lineaF">
+            <div class="linea-verticalF">
+            <span>
+                © 2023 Econo Mart, Inc.
+            </span>
+            </div>
+            <span>Terms Privacy Security</span>
+        </div>
+        </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+  
