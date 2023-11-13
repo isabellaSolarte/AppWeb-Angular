@@ -25,11 +25,13 @@ export class LoginComponent {
       }
     }
     login1(){
-      currentUser.setCurrentRol(0);
+      currentUser.setCurrentRol(1);
       this.router.navigate(['/listarProducto']);
     }
+
     verificarVista(rol:number,id:number){
       if(rol == 1){
+        //aqui se setea currentUser.setCurrentRol(1);
         this.router.navigate(['/listarProducto']);
       }
       else{

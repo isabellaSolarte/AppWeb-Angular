@@ -5,15 +5,16 @@
     </div>
 
     <div class="container py-4">
-        <div class="card">
+      <div class="d-flex flex-wrap" >
+        <div class="card rounded fixed-card" *ngFor="let producto of productos">
             <!-- Cuarto superior con imagen -->
             <img [src]="obtenerRutaImagenAleatoria()" class="card-img-top" alt="Imagen">
           
             <!-- Resto de la card con fondo gris -->
             <div class="card-body bg-light">
               <!-- Título y descripción -->
-              <h5 class="card-title">Título de la Card</h5>
-              <p class="card-text">Descripción de la Card.</p>
+              <h5 class="card-title">{{producto._nombreproducto}}</h5>
+              <p class="card-text">Precio de producto {{producto._precio | currency:'USD':'symbol':'1.2-2'}}</p>
           
               <!-- Botones de eliminar y agregar -->
               <div class="d-flex justify-content-between">
@@ -26,6 +27,7 @@
               </div>
             </div>
           </div>
+      </div>
             
     </div>
     <div id="footer" class="footer-con-imagen">
