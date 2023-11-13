@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {currentUser } from '../control-vista/currentUser';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { Credenciales } from '../modelo/Credenciales';
+import { Usuario } from '../modelo/Usuario';
 
 @Component({
   selector: 'app-login',
@@ -9,33 +11,46 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-    user:string = '';
-    password:string = '';
+   
+    usuario:Usuario={
+      _idusuario: 0,
+      _nombreusuario: '',
+     _username: '',
+      _clave: '',
+      _idrol: 0
+    };
+    creenciales:Credenciales = {
+      _username: '',
+      _clave: ''
+    };
     constructor(private router:Router,private services:UsuarioService){}
 
     login(){
-      if(!this.user  || !this.password ) {
+      if(!this.creenciales._username  || !this.creenciales._clave ) {
         console.error('Las credenciales están vacías');
       }
       else{
         //llamar al service
-        currentUser.setCurrentId(0);
-        currentUser.setCurrentRol(0);
-        this.verificarVista(0,0);
+        this.services.loginUsuario(this.creenciales).subscribe(
+          (res: any) => {
+            console.log(res);
+            this.usuario = res;
+            currentUser.setCurrentId(this.usuario._idusuario);
+            this.verificarVista(this.usuario._idusuario,this.usuario._idrol);
+          },
+          err => console.log(err)
+        );
       }
-    }
-    login1(){
-      currentUser.setCurrentRol(1);
-      this.router.navigate(['/listarProducto']);
     }
 
     verificarVista(rol:number,id:number){
+      currentUser.setCurrentRol(rol);
       if(rol == 1){
-        //aqui se setea currentUser.setCurrentRol(1);
+        
         this.router.navigate(['/listarProducto']);
       }
       else{
-        this.router.navigate(['']);
+        this.router.navigate(['/MainCliente']);
       }
     }
 

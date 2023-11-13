@@ -1,0 +1,41 @@
+<div class="wrapper">
+    <div class="cabecera">
+        <img src="assets/Logo econoMart.png" alt="Icono" class="icono-izquierda">
+    </div>
+
+    <div class="container py-4">
+       
+        <div class="table-responsive mt-4">
+            <table class="table table-striped rounded">
+                <thead>
+                    <tr>
+                        <th>Nombre producto</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let producto of productos; let i = index">
+                        <tr>
+                          <td>{{producto._nombreproducto}}</td>
+                          <td>{{producto._precio | currency:'USD':'symbol':'1.2-2'}}</td>
+                        </tr>
+                      </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="footer" class="footer-con-imagen">
+        <div class="imagen-con-textoF">
+        <div class="texto-con-lineaF">
+            <div class="linea-verticalF">
+            <span>
+                © 2023 Econo Mart, Inc.
+            </span>
+            </div>
+            <span>Terms Privacy Security</span>
+        </div>
+        </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+  

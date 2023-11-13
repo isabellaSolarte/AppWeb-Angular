@@ -1,0 +1,53 @@
+/*Cabecera*/
+.cabecera {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 11vh;/* Cambia la altura según tus preferencias */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 5px solid #D47738;
+}
+.icono-izquierda {
+    width: auto; /* Establece el ancho de la imagen como un porcentaje del ancho de la cabecera */
+    max-height: 80%; /* Limita la altura de la imagen al 100% de la altura de la cabecera */
+}
+
+/*Footer*/
+#footer {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    padding: 10px;
+    background: #4C40B7;
+    height: 50px;
+}
+.texto-con-lineaF{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 14px; /* Tamaño de fuente deseado */
+    color: aliceblue;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    
+    }
+.texto-con-lineaF span{
+    padding-left: 15px;
+    margin-right: 10px; /* Ajusta el espacio entre el texto y la línea vertical */
+    
+}
+.linea-verticalF {
+    border-right: 2px solid rgb(255, 255, 255);
+    padding-right: 15px; /* Añade espacio entre la línea y el texto */
+    margin-right: 15px; 
+
+}
+.footer-con-imagen {
+    padding-left: 10px;
+}
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

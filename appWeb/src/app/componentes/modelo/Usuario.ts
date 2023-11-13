@@ -1,9 +1,7 @@
-import { Rol } from "./Rol";
 export interface Usuario{
-    _id: number;
-    _nombre: string;
-    _login: string;
-    _password: string;
-    _rol:Rol[];
-    _correo: string;
+    _idusuario: number;
+    _nombreusuario: string;
+     _username: string;
+    _clave: string;
+    _idrol: number;
 }

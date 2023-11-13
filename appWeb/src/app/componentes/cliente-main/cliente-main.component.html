@@ -1,10 +1,19 @@
   <div class="wrapper">
     <div class="cabecera">
         <img src="assets/Logo econoMart.png" alt="Icono" class="icono-izquierda">
-        <button  class="btn btn-custom boton-derecha">Crear lista <i class="fas fa-plus"></i></button>
+        <button *ngIf="mostrarCrearLista" (click)="crearLista()" class="btn btn-custom boton-derecha">Crear lista <i class="fas fa-plus"></i></button>
+        
     </div>
 
     <div class="container py-4">
+      <button *ngIf="mostrarLista" (click)="irListaCompras()" class="btn btn-custom boton-derecha">
+        Consultar lista <i class="fas fa-plus"></i>
+      </button>
+
+      <button *ngIf="mostrarLista" (click)="eliminarLista()" class="btn btn-custom boton-derecha">
+        Eliminar lista <i class="fas fa-trash-alt"></i>
+      </button>
+
       <div class="d-flex flex-wrap" >
         <div class="card rounded fixed-card" *ngFor="let producto of productos">
             <!-- Cuarto superior con imagen -->
@@ -17,14 +26,10 @@
               <p class="card-text">Precio de producto {{producto._precio | currency:'USD':'symbol':'1.2-2'}}</p>
           
               <!-- Botones de eliminar y agregar -->
-              <div class="d-flex justify-content-between">
-                <button type="button" class="btn btn-danger btn-sm">
-                  <i class="bi bi-trash"></i> Eliminar
-                </button>
-                <button type="button" class="btn btn-success btn-sm">
+                <button *ngIf="mostrarLista" (click)="agregarProductoLista(producto._idproducto)" type="button" class="btn btn-success btn-sm">
                   <i class="bi bi-plus"></i> Agregar
                 </button>
-              </div>
+              
             </div>
           </div>
       </div>
