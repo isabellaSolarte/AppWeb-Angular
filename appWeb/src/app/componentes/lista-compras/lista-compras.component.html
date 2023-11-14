@@ -4,7 +4,9 @@
     </div>
 
     <div class="container py-4">
-       
+        <button  (click)="irMainPage()" class="btn btn-custom boton-izquierda">
+            Cancelar
+          </button>
         <div class="table-responsive mt-4">
             <table class="table table-striped rounded">
                 <thead>
@@ -35,6 +37,14 @@
             <span>Terms Privacy Security</span>
         </div>
         </div>
+    </div>
+    <div id="myModal" class="modal" [style.display]="mostrarModal ? 'block' : 'none'">
+      <!-- Contenido del modal -->
+      <div class="modal-content">
+        <span class="close" (click)="cerrarModal()">&times;</span>
+        <!-- Contenido del modal con el icono de chulito -->
+        <p>{{mensajeModal}}<i class="fas fa-check-circle"></i></p>
+      </div>
     </div>
   </div>
   <router-outlet></router-outlet>

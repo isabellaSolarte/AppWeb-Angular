@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ProductoCompra } from '../modelo/ProductoCompra';
 import { Router,ActivatedRoute } from '@angular/router';
 import { ProductoService } from 'src/app/services/producto.service';
+import { currentUser } from '../control-vista/currentUser';
+import { currentLista } from '../control-lista/currentLista';
 @Component({
   selector: 'app-lista-compras',
   templateUrl: './lista-compras.component.html',
@@ -9,13 +11,15 @@ import { ProductoService } from 'src/app/services/producto.service';
 })
 export class ListaComprasComponent {
   productos:ProductoCompra[] = [];
+  mensajeModal:string ='';
+  mostrarModal = false;
   constructor(private router:Router,private services:ProductoService,private activeRouter: ActivatedRoute){}
   ngOnInit(): void {
     const params = this.activeRouter.snapshot.params; //sirve para eliminar 
     this.getProductosCompra();
   }
   getProductosCompra(){
-    this.services.listarProductosCompra(11).subscribe(
+    this.services.listarProductosCompra(currentUser.getCurrentId()).subscribe(
       (res: any) => {
         console.log(res);
         this.productos = res;
@@ -23,13 +27,17 @@ export class ListaComprasComponent {
       err => console.log(err)
     );
   }
-  eliminarLista(){
-    this.services.eliminarLista(11).subscribe(
-      (res: any) => {
-        console.log(res);
-        console.log('siuuu');
-      },
-      err => console.log(err)
-    );
+   // Método para abrir el modal
+  abrirModal() {
+    this.mostrarModal = true;
   }
+
+  // Método para cerrar el modal
+  cerrarModal() {
+    this.mostrarModal = false;
+  }
+  irMainPage(){
+    this.router.navigate(['/MainCliente']);
+  }
+  
 }

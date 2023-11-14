@@ -13,7 +13,27 @@
     width: auto; /* Establece el ancho de la imagen como un porcentaje del ancho de la cabecera */
     max-height: 80%; /* Limita la altura de la imagen al 100% de la altura de la cabecera */
 }
-
+/*botones*/
+.boton-derecha{ 
+    background-color: #4C40B7;
+    color: #F8F8F8;
+    margin-right: 3%;
+    font-size:large;
+}
+ .boton-derecha:hover{
+     transform: translate(-5px,-5px);
+     transition: all .3s;
+ }
+ .boton-izquierda{ 
+    background-color: #3f3e44;
+    color: #F8F8F8;
+    margin-right: 3%;
+    font-size:large;
+}
+ .boton-izquierda:hover{
+     transform: translate(-5px,-5px);
+     transition: all .3s;
+ }
 /*Footer*/
 #footer {
     display: flex;

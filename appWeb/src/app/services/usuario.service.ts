@@ -13,7 +13,7 @@ export class UsuarioService {
   constructor(private http:HttpClient) { }
 
   loginUsuario(credenciales: Credenciales){
-    return this.http.post(`${this.API_URI}/usuario/login/`,credenciales);
+    return this.http.post(`${this.API_URI}/usuarios`,credenciales);
   }
 
 }

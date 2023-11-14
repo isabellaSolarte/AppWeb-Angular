@@ -5,6 +5,7 @@ import { ListaCompras } from '../modelo/ListaCompras';
 import { ListaAgregados } from '../modelo/ListaAgregados';
 import { Router } from '@angular/router';
 import { currentLista } from '../control-lista/currentLista';
+import { currentUser } from '../control-vista/currentUser';
 
 @Component({
   selector: 'app-cliente-main',
@@ -13,8 +14,10 @@ import { currentLista } from '../control-lista/currentLista';
 })
 export class ClienteMainComponent {
   productos:Producto[] = [];
+  mensajeModal:string ='';
   mostrarLista:boolean = false;
   mostrarCrearLista:boolean = true;
+  mostrarModal = false;
   imagenes: string[] = [
     'assets/fondo.jpg',
     'assets/imagen1.jpg',
@@ -55,34 +58,39 @@ export class ClienteMainComponent {
     );
   }
   crearLista(){
-    this.services.crearListaProductos(11).subscribe(
+    this.services.crearListaProductos(currentUser.getCurrentId()).subscribe(
       (res: any) => {
         console.log(res);
-        //notificar la creación de la lista de productos
-
+        this.mensajeModal = 'Se ha creado la lista de compras     '
+        this.abrirModal();
         currentLista.setMostrarLista(true);
         this.mostrarLista = true;
         currentLista.setMostrarCrearLista(false);
         this.mostrarCrearLista = false;
         this.lista = res;
+        currentLista.setid(this.lista._idlista);
       },
       err => console.log(err)
     );
   }
   agregarProductoLista(idProducto:number){
     this.agregarProducto._idproducto = idProducto;
-    this.agregarProducto._idlista = this.lista._idlista;
+    this.agregarProducto._idlista = currentLista.getId();
     this.services.agregarProductoLista(this.agregarProducto).subscribe(
       (res: any) => {
+        this.mensajeModal = 'Se ha agregado el producto a la lista   '
+        this.abrirModal();
         console.log(res);
       },
       err => console.log(err)
     );
   }
   eliminarLista(){
-    this.services.eliminarLista(11).subscribe(
+    this.services.eliminarLista(currentUser.getCurrentId()).subscribe(
       (res: any) => {
         console.log(res);
+        this.mensajeModal = 'Se ha eliminado la lista de compras   '
+        this.abrirModal();
         currentLista.setMostrarLista(false);
         this.mostrarLista = false;
         currentLista.setMostrarCrearLista(true);
@@ -90,6 +98,14 @@ export class ClienteMainComponent {
       },
       err => console.log(err)
     );
+  }
+  // Método para abrir el modal
+  abrirModal() {
+    this.mostrarModal = true;
+  }
+  // Método para cerrar el modal
+  cerrarModal() {
+    this.mostrarModal = false;
   }
   irListaCompras(){
     this.route.navigate(['/listaCompras/'+this.lista._idlista]);

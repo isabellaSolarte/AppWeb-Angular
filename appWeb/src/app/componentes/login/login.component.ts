@@ -36,17 +36,17 @@ export class LoginComponent {
             console.log(res);
             this.usuario = res;
             currentUser.setCurrentId(this.usuario._idusuario);
-            this.verificarVista(this.usuario._idusuario,this.usuario._idrol);
+            this.verificarVista(this.usuario._idrol);
           },
           err => console.log(err)
         );
       }
     }
 
-    verificarVista(rol:number,id:number){
+    verificarVista(rol:number){
+      console.log(this.usuario._idrol);
       currentUser.setCurrentRol(rol);
       if(rol == 1){
-        
         this.router.navigate(['/listarProducto']);
       }
       else{
