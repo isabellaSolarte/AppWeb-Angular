@@ -94,6 +94,7 @@ export class ClienteMainComponent {
         currentLista.setMostrarLista(false);
         this.mostrarLista = false;
         currentLista.setMostrarCrearLista(true);
+        currentLista.setid(0);
         this.mostrarCrearLista = true;
       },
       err => console.log(err)

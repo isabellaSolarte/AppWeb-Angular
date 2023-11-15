@@ -23,10 +23,5 @@ export class ListarProductoComponent {
       err => console.log(err)
     );
   }
-  irCrearProducto(){
-    this.router.navigate(['/crearProducto']);
-  }
-  irEditar(){
-    this.router.navigate(['/editarProducto']);
-  }
+
 }

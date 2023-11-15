@@ -1,7 +1,6 @@
 <div class="wrapper">
     <div class="cabecera">
         <img src="assets/Logo econoMart.png" alt="Icono" class="icono-izquierda">
-        <button (click)= "irCrearProducto()" class="btn btn-custom boton-derecha">Crear <i class="fas fa-plus"></i></button>
     </div>
 
     <div class="container py-4">
@@ -13,7 +12,6 @@
                             <th>Nombre</th>
                             <th>Precio</th>
                             <th>Fecha de creación</th>
-                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -22,18 +20,8 @@
                               <td>{{producto._idproducto}}</td>
                               <td>{{producto._nombreproducto}}</td>
                               <td>{{producto._precio}}</td>
-                              <td>{{producto._fechafabricacion}}</td>
-                              <td>
-                                <div class="button-container">
-                                  <button (click)="irEditar()" class="btn btn-editar"  title="Editar">
-                                    <i class="fas fa-pencil-alt"></i>
-                                  </button>
-                              
-                                  <button  class="btn btn-eliminar"  title="Eliminar" style="margin-left: 5px;">
-                                    <i class="fas fa-trash-alt"></i>
-                                  </button>
-                                </div>
-                              </td>
+                              <td>{{producto._fechafabricacion | date:'shortDate' }}</td>
+                             
                             </tr>
                           </ng-container>
                     </tbody>

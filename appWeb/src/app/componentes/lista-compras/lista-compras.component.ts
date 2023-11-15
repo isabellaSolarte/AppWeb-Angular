@@ -31,10 +31,25 @@ export class ListaComprasComponent {
   abrirModal() {
     this.mostrarModal = true;
   }
-
+  crearLista(){
+    if(this.productos.length != 0){
+      this.services.crearLista(currentUser.getCurrentId()).subscribe(
+        (res: any) => {
+          console.log('siuuu');
+          //se puede volver a crear una lista nueva
+          currentLista.setMostrarLista(false);
+          currentLista.setMostrarCrearLista(true);
+          currentLista.setid(0);
+          this.mensajeModal = 'Se ha creado su lista de compras  '
+          this.mostrarModal = true;
+        },
+        err => console.log(err)
+      );
+    }  
+  }
   // Método para cerrar el modal
   cerrarModal() {
-    this.mostrarModal = false;
+    this.irMainPage();
   }
   irMainPage(){
     this.router.navigate(['/MainCliente']);

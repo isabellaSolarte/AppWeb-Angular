@@ -25,4 +25,7 @@ export class ProductoService {
   eliminarLista(idUser:number): Observable<any>{
     return this.http.delete(`${this.API_URI}/compras/${idUser}`);
   }
+  crearLista(idUser:number): Observable<any>{
+    return this.http.post(`${this.API_URI}/compras/${idUser}`, {idUser});
+  }
 }
