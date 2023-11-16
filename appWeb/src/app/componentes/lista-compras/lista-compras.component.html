@@ -16,6 +16,7 @@
                     <tr>
                         <th>Nombre producto</th>
                         <th>Precio</th>
+                        <th>Cantidad</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,6 +24,7 @@
                         <tr>
                           <td>{{producto._nombreproducto}}</td>
                           <td>{{producto._precio | currency:'USD':'symbol':'1.2-2'}}</td>
+                          <td>{{producto._cantidad}}</td>
                         </tr>
                       </ng-container>
                 </tbody>
